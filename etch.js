@@ -2,6 +2,7 @@
 const sizeChange = document.querySelector("#sizeChange");
 const body = document.querySelector("body");
 let gridSize = 0;
+let opacity = 0.5;
 
 function createGridContainer() {
     let gridContainer = document.createElement("div");
@@ -23,8 +24,17 @@ function createGrid (gridSize) {
             for (let j = 1; j <= gridSize; j++) {
                 const grid = document.createElement("div");
                 grid.setAttribute("id", "grid");
+                grid.style.backgroundColor = "rgba(0, 0, 0, 0)";
+                grid.dataset.opacity = "0";
                 grid.addEventListener('mouseenter',(event) => {
-                grid.classList.add("black");
+                // grid.style.backgroundColor = `rgba(${getRandomInt(0, 256)}, ${getRandomInt(0, 256)}, ${getRandomInt(0, 256)})`;
+                let currentOpacity = parseFloat(grid.dataset.opacity);
+                if (currentOpacity < 1) {
+                    currentOpacity = Math.min(currentOpacity + 0.1, 1); // cap at 1
+                    grid.dataset.opacity = currentOpacity.toString();
+                    grid.style.backgroundColor = `rgba(${getRandomInt(0, 256)}, ${getRandomInt(0, 256)}, ${getRandomInt(0, 256)}, ${currentOpacity})`;
+                }
+                // grid.classList.add("black");
                 });
                 vgrid.appendChild(grid);
             }
@@ -42,4 +52,18 @@ sizeChange.addEventListener('click',() => {
         createGrid(gridSize);
     } else createGrid(gridSize);
 })
+
+function getRandomInt(min, max) {
+  const minCeiled = Math.ceil(min);
+  const maxFloored = Math.floor(max);
+  return Math.floor(Math.random() * (maxFloored - minCeiled) + minCeiled);
+}
+
+
+function incrementOpacity() {
+    if (opacity >= 0 && opacity <= 1.0) {
+    opacity += 0.1;
+    console.log(opacity);
+    } else;
+}
 
