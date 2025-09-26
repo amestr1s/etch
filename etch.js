@@ -25,13 +25,13 @@ function createGrid (gridSize) {
                 const grid = document.createElement("div");
                 grid.setAttribute("id", "grid");
                 grid.style.backgroundColor = "rgba(0, 0, 0, 0)";
-                grid.dataset.opacity = "0";
+                grid.dataset.opacity = "0"; //llm suggestion
                 grid.addEventListener('mouseenter',(event) => {
                 // grid.style.backgroundColor = `rgba(${getRandomInt(0, 256)}, ${getRandomInt(0, 256)}, ${getRandomInt(0, 256)})`;
-                let currentOpacity = parseFloat(grid.dataset.opacity);
-                if (currentOpacity < 1) {
-                    currentOpacity = Math.min(currentOpacity + 0.1, 1); // cap at 1
-                    grid.dataset.opacity = currentOpacity.toString();
+                let currentOpacity = parseFloat(grid.dataset.opacity); //llm suggestion
+                if (currentOpacity < 1) { //llm suggestion
+                    currentOpacity = Math.min(currentOpacity + 0.1, 1); // cap at 1 llm suggestion
+                    grid.dataset.opacity = currentOpacity.toString(); //llm suggestion
                     grid.style.backgroundColor = `rgba(${getRandomInt(0, 256)}, ${getRandomInt(0, 256)}, ${getRandomInt(0, 256)}, ${currentOpacity})`;
                 }
                 // grid.classList.add("black");
@@ -60,10 +60,10 @@ function getRandomInt(min, max) {
 }
 
 
-function incrementOpacity() {
-    if (opacity >= 0 && opacity <= 1.0) {
-    opacity += 0.1;
-    console.log(opacity);
-    } else;
-}
+// function incrementOpacity() { //tried to create my own opacity function but prolly messed up logic
+//     if (opacity >= 0 && opacity <= 1.0) {
+//     opacity += 0.1;
+//     console.log(opacity); 
+//     } else;
+// }
 
