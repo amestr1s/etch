@@ -1,0 +1,36 @@
+body {
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+#grid {
+    border: 1px solid black;
+    margin: 0px;
+    flex: 1;
+}
+
+#vgrid {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    gap: 0px;
+    flex: 1;
+}
+
+#gridContainer {
+    display: flex;
+    justify-content: space-around;
+    gap: 0px;
+    width: 700px;
+    height: 700px;
+    border: 2px solid red;
+}
+
+.black {
+    background-color: black;
+    transition: 0.25s;
+}
